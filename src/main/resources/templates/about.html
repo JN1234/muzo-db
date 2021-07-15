@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="Cascade/w3.css"/>
+    <title>About Developer</title>
+</head>
+<body style="background-image:  url('Images/Zesco.jpeg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover">
+    <div class="navbar">
+        <div class="container">
+            <a class="logo" ref="#">ZESCO</a>
+            <img id="mobile-cta" class="mobile-menu-exit" src="images/hamburger.png" alt="open nav" style="width:20px; height:20px;">
+            <nav>
+                <img id="mobile-exit" class="mobile-menu" src="images/download.png" alt="exit" style="width:20px; height:20px;">
+        
+                <ul class= "p-nav">
+                    <li ><a th:href="@{/home}">Home</a></li>
+                    <li><a th:href="@{/equipment}">Equipment</a></li>
+                    <li><a th:href="@{/issues}">Issues</a></li>
+                    <li><a th:href="@{/about}">About</a></li>
+                </ul>
+            
+                <ul class="s-nav">
+                    <li class="log-in-cta"><a th:href="@{/logout}"> LOG OUT</a></li>
+                </ul>
+            </nav>
+            <li><h5 >Welcome <span sec:authentication="principal.username">Welcome guest! </span></h5></li>
+        </div>
+        
+    </div>
+    
+    <div>
+            <div class="container">
+                <div class="right-col">
+                    <h1 class="subhead">ABOUT THE DEVELOPER</h1>
+                </div>
+            </div>
+       
+    
+        <section class="features-section1">
+            <div class="container">
+                <pre class="registration">
+                    Name: Malupande Musonda
+                    SIN: 18123129
+                    Program: Bachelor of Science in Conputer Science                  
+                    Experience: This might be one of the toughest things ever done.
+                                What with limited knowledge on springboot and a malfunctioning
+                                laptop. I did my best. Though tough, it as a very interesting 
+                                learning experience.              
+                    
+              </pre>
+                
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div>
+            <h2>ZESCO. Powering the nation. </h2>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="Cascade/w3.css"/>
+    <title>Home Page</title>
+</head>
+<body style="background-image:  url('Images/Zesco.jpeg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover">
+    <div class="navbar">
+        <div class="container">
+            <a class="logo" href="#">ZESCO</a>
+
+            <img id="mobile-cta" class="mobile-menu-exit" src="images/hamburger.png" alt="open nav" width="20" height="20">
+            <nav>
+                <img id="mobile-exit" class="mobile-menu" src="images/download.png" alt="exit" width="20" height="20">
+        
+                <ul class= "p-nav">
+                    <li ><a href="#">Home</a></li>
+                    <li><a th:href="@{/equipment}">Equipment</a></li>
+                    <li><a th:href="@{/issues}">Issues</a></li>
+                    <li><a th:href="@{/about}">About</a></li>
+                </ul>
+            
+                <ul class="s-nav">
+                    <li class="log-in-cta"><a th:href="@{/login}"> LOG OUT</a></li>
+                </ul>
+            </nav>
+            <li><h5 >Welcome <span sec:authentication="principal.username">Welcome guest! </span></h5></li>
+        </div>
+
+        
+        
+    </div>
+
+    <h1 style="text-align: center; font-weight: bolder; color: rgb(163, 160, 157)">
+        Welcome to Zesco's issue Tracking Applications.
+    </h1>
+
+    <div>
+        <h2 style="font-weight:bold; color: black; margin-top: 40px; text-align: center;">To navigate across the app, simply use the navigation bar above.</h2>
+        <h2 style="text-align:center; font-size:large; color:black; margin-top: 10px;"> Have a pleasant day</h2>
+    </div>
+    <footer>
+        <div style="text-align: center;">
+            <h2>ZESCO. Powering the nation. </h2>
+        </div>
+    </footer>
+</body>
+</html>

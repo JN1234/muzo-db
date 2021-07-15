@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="Cascade/w3.css"/>
+    <link rel="stylesheet" href="Cascade/issues.css"/>
+    <title>Issues</title>
+</head>
+<body style="background-image: url('Images/Zesco.jpeg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover">
+    <div class="navbar">
+        <div class="container">
+            <a class="logo" href="#">ZESCO</a>
+            <img id="mobile-cta" class="mobile-menu-exit" src="images/hamburger.png" alt="open nav" style="width:20px; height:20px;">
+            <nav>
+                <img id="mobile-exit" class="mobile-menu" src="images/download.png" alt="exit" style="width:20px; height:20px;">
+        
+                <ul class= "p-nav">
+                    <li ><a th:href="@{/home}">Home</a></li>
+                    <li><a th:href="@{/equipment}">Equipment</a></li>
+                    <li><a th:href="@{/issues}">Issues</a></li>
+                    <a th:href="@{/about}"> <li>About</li></a>
+                </ul>
+            
+                <ul class="s-nav">
+                    <li class="log-in-cta"><a th:href="@{/login}"> LOG OUT</a></li>
+                </ul>
+            </nav>
+            <li><h5 >Welcome <span sec:authentication="principal.username">Welcome guest! </span></h5></li>
+        </div>        
+    </div>
+
+   
+<div class="marg">
+<div class="container">
+  <form  th:action="@{/issues/addNew}" method="POST">
+    
+    <div class="row w3-center">
+      <div class="col-25">
+        <label for="Issue">Issue</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="issue" name="name" placeholder="Issue...">
+      </div>
+    </div>
+
+  
+
+    <div class="row w3-center">
+      <div class="col-25">
+        <label for="issue">Description</label>
+      </div>
+      <div class="col-75 w3">
+        <textarea id="description" name="description" placeholder="Description of issue.." style="height:200px"></textarea>
+      </div>
+    </div>
+	<div class="row w3-center">
+      <div class="col-25">
+        <label for="location">Location</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="location" name="location" placeholder="Location..">
+      </div>
+    </div>
+    <div class="row w3-center">
+      <p><input type="submit"  class="w3-teal" name="save" value="Save">
+    </div>
+  </form>
+</div>
+
+
+<div>
+<div  class="w3-card-4" style="margin-top: 30px;">
+ <h2 id="availableEquip">Available Issues </h2>
+<table class="w3-table-all">
+    <thead>
+       <tr class="w3-light-grey" >
+        <th >id</th>
+        <th>description</th>
+        <th >location</th>
+        <th >name</th>
+       </tr>
+    </thead>
+    <tbody>
+        <tr class="w3-hover-teal" th:each="issues:${issues}">
+            <td th:text="${issues.id}"></td>
+            <td th:text="${issues.description}"></td>
+            <td th:text="${issues.location}"></td>
+            <td th:text="${issues.name}"></td>
+
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+    <footer>
+        <div>
+            <h2 style="text-align: center;">ZESCO. Powering the nation. </h2>
+        </div>
+    </footer>
+</body>
+</html>

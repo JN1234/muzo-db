@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="Cascade/w3.css"/>
+    <link rel="stylesheet" href="Cascade/Equipments.css"/>
+    <title>Equipment</title>
+</head>
+<body style="background-image:  url('Images/Zesco.jpeg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover">
+    <div class="navbar">
+        <div class="container">
+            <a class="logo" href="#">ZESCO</a>
+            <img id="mobile-cta" class="mobile-menu-exit" src="images/hamburger.png" alt="open nav" width="20" height="20">
+            <nav>
+                <img id="mobile-exit" class="mobile-menu" src="images/download.png" alt="exit" width="20" height="20">
+        
+                <ul class= "p-nav">
+                    <li ><a th:href="@{/home}">Home</a></li>
+                    <li><a th:href="@{/equipment}">Equipment</a></li>
+                    <li><a th:href="@{/issues}">Issues</a></li>
+                    <li><a th:href="@{/about}">About</a></li>
+                    
+                </ul>
+            
+                <ul class="s-nav">
+                    <li class="log-in-cta"><a th:href="@{/login}"> LOG OUT</a></li>
+                </ul>
+            </nav>
+            <li><h5 >Welcome <span sec:authentication="principal.username">Welcome guest! </span></h5></li>
+        </div>
+    </div>
+
+
+<div style="margin:100px;">
+      <div class="container">
+	    <!-- action sending to database upon submission-->
+        <form th:action="@{/equipments/addNew}" method="POST">
+          
+          <div class="row w3-center">
+            <div class="col-25">
+              <label for="equipEdit">Equipment</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="equipEdit" name="name" placeholder="Equipment..">
+            </div>
+          </div>
+
+
+          <div class="row w3-center">
+            <div class="col-25">
+              <label for="descriptionEdit">Description</label>
+            </div>
+            <div class="col-75 w3">
+              <textarea id="descriptionEdit" name="description" placeholder="Description of equipment.." style="height:200px"></textarea>
+            </div>
+          </div>
+          <div class="row w3-center">
+            <p><input type="submit" name="save"  id="editButton" value="Save"></p>
+          </div>
+        </form>
+      </div>
+
+      <!--Table div-->
+      <div  class="w3-card-4" style="margin-top: 30px;">
+      <table class="w3-table-all">
+        <thead>
+           <tr class="w3-light-grey">
+            <th >Id</th> 
+            <th >Name</th>
+            <th>Description</th>
+           </tr>
+        </thead>
+        <tbody>
+            <tr  th:each="equipments:${equipments}">
+                <td th:text="${equipments.id}"></td>
+                <td th:text="${equipments.name}"></td>
+                <td th:text="${equipments.description}"></td>
+            </tr>
+        </tbody>
+    </table>
+      </div>
+      </div>
+      
+
+    <footer>
+        <div>
+            <h2>ZESCO. Powering the nation. </h2>
+        </div>
+    </footer>
+</body>
+</html>
